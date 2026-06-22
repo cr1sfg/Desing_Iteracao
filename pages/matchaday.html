@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <script src="/_sdk/telemetry_sdk.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footfute Brasil</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://t.contentsquare.net/uxa/8f04593b42a1b.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="../css/matchday.css" />
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full">
+    <main
+      class="h-full w-full flex flex-col pitch-pattern"
+      style="background: var(--navy)"
+    >
+      <!-- HEADER -->
+      <header class="flex-shrink-0 px-6 pt-5 pb-4 relative">
+        <!-- Top bar with date/nav -->
+        <div
+          class="flex items-center justify-between text-xs font-mono uppercase tracking-widest"
+          style="color: var(--text-muted)"
+        >
+          <div class="flex items-center gap-2">
+            <span
+              class="pulse-dot w-2 h-2 rounded-full"
+              style="background: var(--lime)"
+            ></span>
+            <span id="seasonLabel">Temporada 2026</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="hidden sm:inline">
+              CBF / Confederação Brasileira
+            </span>
+            <span id="currentDate"> Sab, 12 Out 2026 </span>
+          </div>
+        </div>
+        <div class="divider-line my-3"></div>
+        <!-- Centered title -->
+        <div class="text-center relative">
+          <div class="flex items-center justify-center gap-3 mb-1">
+            <span
+              class="h-px w-12 sm:w-24"
+              style="background: var(--lime)"
+            ></span>
+            <i
+              data-lucide="trophy"
+              class="w-4 h-4"
+              style="color: var(--lime)"
+            ></i>
+            <h1
+              id="championshipName"
+              class="font-display font-bold text-3xl sm:text-4xl tracking-wider uppercase"
+              style="color: #fff"
+            >
+              Brasileirão
+            </h1>
+            <i data-lucide="trophy" class="w-4 h-4" style="color: var(--lime)">
+            </i>
+            <span
+              class="h-px w-12 sm:w-24"
+              style="background: var(--lime)"
+            ></span>
+          </div>
+          <p
+            id="matchdaySubtitle"
+            class="font-mono text-xs sm:text-sm uppercase tracking-[0.3em]"
+            style="color: var(--lime)"
+          >
+            Matchday — 1ª Fase
+          </p>
+        </div>
+      </header>
+      <!-- MAIN GRID -->
+      <div
+        class="main-grid flex-1 grid gap-3 px-6 pb-3 min-h-0"
+        style="grid-template-columns: 70% 1fr"
+      >
+        <!-- LEFT PANEL: MATCH LIST -->
+        <section
+          class="match-list-panel relative flex flex-col min-h-0"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <!-- Panel header -->
+          <div
+            class="flex-shrink-0 flex items-center justify-between px-5 py-3 border-b border-white/5"
+          >
+            <div class="flex items-center gap-3">
+              <div class="w-1 h-5" style="background: var(--lime)"></div>
+              <h2
+                class="font-display uppercase tracking-[0.2em] text-sm font-semibold"
+              >
+                Round 28 — Resultados
+              </h2>
+            </div>
+            <div
+              class="flex items-center gap-2 text-xs font-mono uppercase"
+              style="color: var(--text-muted)"
+            >
+              <i data-lucide="list" class="w-3.5 h-3.5"></i>
+              <span><span id="matchCount">10</span> partidas</span>
+            </div>
+          </div>
+          <!-- Column headers -->
+          <div
+            class="flex-shrink-0 grid grid-cols-12 gap-2 px-5 py-2 text-[10px] font-mono uppercase tracking-widest border-b border-white/5"
+            style="color: var(--text-muted)"
+          >
+            <div class="col-span-1">#</div>
+            <div class="col-span-3">Home</div>
+            <div class="col-span-2 text-center">Score</div>
+            <div class="col-span-3">Away</div>
+            <div class="col-span-2">Venue</div>
+            <div class="col-span-1 text-right">Status</div>
+          </div>
+          <!-- Scrollable match list -->
+          <div
+            id="matchList"
+            class="flex-1 overflow-y-auto custom-scroll min-h-0"
+          >
+            <!-- Match cards injected here -->
+          </div>
+        </section>
+        <!-- RIGHT PANEL: MATCH DETAILS -->
+        <section
+          id="detailPanel"
+          class="relative flex flex-col min-h-0 corner-accent"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(215, 255, 0, 0.15);
+          "
+        >
+          <div
+            id="detailContent"
+            class="flex-1 overflow-y-auto custom-scroll min-h-0"
+          ></div>
+        </section>
+      </div>
+      <!-- FOOTER CONTINUE BUTTON -->
+      <footer class="flex-shrink-0 px-6 pb-5 pt-2">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <div
+            class="flex items-center gap-3 text-xs font-mono uppercase tracking-wider"
+            style="color: var(--text-muted)"
+          >
+            <i data-lucide="info" class="w-4 h-4"></i>
+            <span>Todos os jogos finalizados · Pronto para avançar</span>
+          </div>
+          <button
+            id="continueBtn"
+            class="btn-primary px-8 py-3 flex items-center gap-3 uppercase text-sm"
+          >
+            <span id="continueBtnText">Avançar para próxima rodada</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </footer>
+    </main>
+    <script src="../js/matchday.js"></script>
+  </body>
+</html>

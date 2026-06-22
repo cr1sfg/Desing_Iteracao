@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <script src="/_sdk/telemetry_sdk.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tela de Negociação de Jogadores</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script
+      src="https://cdn.tailwindcss.com/3.4.17"
+      type="text/javascript"
+    ></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/market.css" />
+  </head>
+  <body class="h-full">
+    <div id="app" class="app-shell pitch-grid h-full w-full">
+      <header class="w-full px-5 py-3 md:px-8 md:py-4 flex-shrink-0">
+        <div
+          class="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between"
+        >
+          <div class="fade-in">
+            <div
+              class="mb-1 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.28em]"
+              style="border-color: rgba(215, 255, 0, 0.36); color: #d7ff00"
+            >
+              <span
+                class="h-2 w-2 rounded-full"
+                style="background: #d7ff00"
+              ></span>
+              Grêmio Admin
+            </div>
+            <h1
+              id="screenTitle"
+              class="text-3xl font-black tracking-tight md:text-4xl"
+            >
+              Central de Negociações
+            </h1>
+            <p
+              id="screenSubtitle"
+              class="mt-1 max-w-2xl text-xs leading-5 text-slate-300 md:text-sm"
+            >
+              Administre vendas, avalie reforços e monte o próximo elenco
+              campeão.
+            </p>
+          </div>
+          <aside
+            class="glass-card lime-glow fade-in delay-1 rounded-2xl p-4 md:min-w-[280px] flex-shrink-0"
+            aria-label="Carteira do clube"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p
+                  id="walletLabel"
+                  class="text-xs font-bold uppercase tracking-[0.22em] text-slate-300"
+                >
+                  Carteira
+                </p>
+                <p
+                  id="walletAmount"
+                  class="mt-1 text-2xl font-black"
+                  style="color: #d7ff00"
+                >
+                  € 42.5M
+                </p>
+              </div>
+              <div
+                class="rounded-2xl p-2"
+                style="background: rgba(215, 255, 0, 0.12); color: #d7ff00"
+              >
+                <i
+                  data-lucide="wallet"
+                  aria-hidden="true"
+                  style="width: 20px; height: 20px"
+                ></i>
+              </div>
+            </div>
+            <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800">
+              <div
+                id="budgetBar"
+                class="h-full rounded-full"
+                style="width: 72%; background: #d7ff00"
+              ></div>
+            </div>
+          </aside>
+        </div>
+      </header>
+      <main
+        class="mx-auto max-w-7xl gap-4 px-5 pb-4 md:px-8 flex-1 flex flex-col md:grid md:grid-cols-[0.92fr_1.35fr] w-full overflow-hidden"
+      >
+        <section
+          class="glass-card fade-in delay-2 rounded-2xl p-4 md:p-5 flex flex-col overflow-hidden"
+          aria-labelledby="sellTitle"
+        >
+          <div
+            class="mb-4 flex items-center justify-between gap-2 flex-shrink-0"
+          >
+            <div>
+              <h2 id="sellTitle" class="text-lg font-black">
+                Jogadores à venda
+              </h2>
+              <p class="mt-0.5 text-xs text-slate-300">Ofertas abertas</p>
+            </div>
+            <span
+              class="rounded-full px-2 py-1 text-xs font-black"
+              style="background: #d7ff00; color: #0d1b2a"
+              >3</span
+            >
+          </div>
+          <div class="space-y-3 overflow-y-auto flex-1">
+            <article
+              class="player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex gap-2">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-black flex-shrink-0"
+                    style="background: #d7ff00; color: #0d1b2a"
+                  >
+                    CA
+                  </div>
+                  <div class="min-w-0">
+                    <h3 class="font-black text-sm truncate">Cristian Alves</h3>
+                    <p class="text-xs text-slate-300 truncate">
+                      Atacante • 27 anos • 78
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="text-sm font-black flex-shrink-0"
+                  style="color: #d7ff00"
+                >
+                  €9.2M
+                </p>
+              </div>
+              <div class="mt-2 grid grid-cols-3 gap-1 text-center text-xs">
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">82</b>
+                  <span class="text-xs">FIN</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">76</b>
+                  <span class="text-xs">RIT</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">69</b>
+                  <span class="text-xs">PAS</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex gap-2">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-black flex-shrink-0"
+                    style="background: #d7ff00; color: #0d1b2a"
+                  >
+                    MF
+                  </div>
+                  <div class="min-w-0">
+                    <h3 class="font-black text-sm truncate">Mateus Ferreira</h3>
+                    <p class="text-xs text-slate-300 truncate">
+                      Meia • 31 anos • 75
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="text-sm font-black flex-shrink-0"
+                  style="color: #d7ff00"
+                >
+                  €6.8M
+                </p>
+              </div>
+              <div class="mt-2 grid grid-cols-3 gap-1 text-center text-xs">
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">80</b>
+                  <span class="text-xs">PAS</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">74</b>
+                  <span class="text-xs">VIS</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">70</b>
+                  <span class="text-xs">FIS</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex gap-2">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-black flex-shrink-0"
+                    style="background: #d7ff00; color: #0d1b2a"
+                  >
+                    ZG
+                  </div>
+                  <div class="min-w-0">
+                    <h3 class="font-black text-sm truncate">Rafael Duarte</h3>
+                    <p class="text-xs text-slate-300 truncate">
+                      Zagueiro • 29 anos • 76
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="text-sm font-black flex-shrink-0"
+                  style="color: #d7ff00"
+                >
+                  €7.5M
+                </p>
+              </div>
+              <div class="mt-2 grid grid-cols-3 gap-1 text-center text-xs">
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">83</b>
+                  <span class="text-xs">DEF</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">79</b>
+                  <span class="text-xs">FOR</span>
+                </div>
+                <div class="rounded-xl bg-slate-900/80 p-2">
+                  <b class="block text-sm">72</b>
+                  <span class="text-xs">CAB</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section
+          class="glass-card fade-in delay-3 rounded-2xl p-4 md:p-5 flex flex-col overflow-hidden"
+          aria-labelledby="buyTitle"
+        >
+          <div
+            class="mb-3 flex flex-col gap-2 flex-shrink-0 md:flex-row md:items-end md:justify-between"
+          >
+            <div>
+              <h2 id="buyTitle" class="text-lg font-black">Mercado</h2>
+              <p class="mt-0.5 text-xs text-slate-300">
+                Jogadores para comprar
+              </p>
+            </div>
+            <div
+              class="rounded-xl border border-slate-700 bg-slate-950/35 p-0.5 flex gap-1 flex-shrink-0"
+            >
+              <button
+                id="filterAll"
+                class="rounded-lg px-2 py-1.5 text-xs font-black action-btn"
+                style="background: #d7ff00; color: #0d1b2a"
+                type="button"
+              >
+                Todos
+              </button>
+              <button
+                id="filterAttack"
+                class="rounded-lg px-2 py-1.5 text-xs font-black text-slate-200 action-btn"
+                type="button"
+              >
+                Ataque
+              </button>
+              <button
+                id="filterDefense"
+                class="rounded-lg px-2 py-1.5 text-xs font-black text-slate-200 action-btn"
+                type="button"
+              >
+                Defesa
+              </button>
+            </div>
+          </div>
+          <div
+            id="marketGrid"
+            class="grid gap-3 lg:grid-cols-2 overflow-y-auto flex-1"
+          >
+            <article
+              class="market-card player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+              data-role="attack"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <p
+                    class="text-xs font-black uppercase tracking-[0.15em]"
+                    style="color: #d7ff00"
+                  >
+                    Santos
+                  </p>
+                  <h3 class="mt-0.5 text-sm font-black">João Henrique</h3>
+                  <p class="text-xs text-slate-300">Ponta Dir • 24a</p>
+                </div>
+                <div
+                  class="rounded-lg px-2 py-1 text-xs font-black flex-shrink-0"
+                  style="background: rgba(215, 255, 0, 0.12); color: #d7ff00"
+                >
+                  82
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl bg-slate-900/80 p-3">
+                <div class="flex justify-between text-xs">
+                  <span>Valor</span><b style="color: #d7ff00">€18.5M</b>
+                </div>
+                <div class="mt-2 grid grid-cols-4 gap-1 text-center text-xs">
+                  <div><b class="block text-sm">88</b>RIT</div>
+                  <div><b class="block text-sm">80</b>FIN</div>
+                  <div><b class="block text-sm">77</b>PAS</div>
+                  <div><b class="block text-sm">84</b>DRI</div>
+                </div>
+              </div>
+              <button
+                class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
+                style="background: #d7ff00; color: #0d1b2a"
+                type="button"
+                data-price="18500000"
+                data-player="João Henrique"
+              >
+                <i
+                  data-lucide="shopping-bag"
+                  aria-hidden="true"
+                  style="width: 16px; height: 16px"
+                ></i>
+                Comprar
+              </button>
+            </article>
+            <article
+              class="market-card player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+              data-role="defense"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <p
+                    class="text-xs font-black uppercase tracking-[0.15em]"
+                    style="color: #d7ff00"
+                  >
+                    River
+                  </p>
+                  <h3 class="mt-0.5 text-sm font-black">Martín Rojas</h3>
+                  <p class="text-xs text-slate-300">Volante • 26a</p>
+                </div>
+                <div
+                  class="rounded-lg px-2 py-1 text-xs font-black flex-shrink-0"
+                  style="background: rgba(215, 255, 0, 0.12); color: #d7ff00"
+                >
+                  81
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl bg-slate-900/80 p-3">
+                <div class="flex justify-between text-xs">
+                  <span>Valor</span><b style="color: #d7ff00">€16.2M</b>
+                </div>
+                <div class="mt-2 grid grid-cols-4 gap-1 text-center text-xs">
+                  <div><b class="block text-sm">82</b>MAR</div>
+                  <div><b class="block text-sm">86</b>DES</div>
+                  <div><b class="block text-sm">79</b>PAS</div>
+                  <div><b class="block text-sm">84</b>FIS</div>
+                </div>
+              </div>
+              <button
+                class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
+                style="background: #d7ff00; color: #0d1b2a"
+                type="button"
+                data-price="16200000"
+                data-player="Martín Rojas"
+              >
+                <i
+                  data-lucide="shopping-bag"
+                  aria-hidden="true"
+                  style="width: 16px; height: 16px"
+                ></i>
+                Comprar
+              </button>
+            </article>
+            <article
+              class="market-card player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+              data-role="attack"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <p
+                    class="text-xs font-black uppercase tracking-[0.15em]"
+                    style="color: #d7ff00"
+                  >
+                    Benfica
+                  </p>
+                  <h3 class="mt-0.5 text-sm font-black">Luca Moretti</h3>
+                  <p class="text-xs text-slate-300">Centroav • 22a</p>
+                </div>
+                <div
+                  class="rounded-lg px-2 py-1 text-xs font-black flex-shrink-0"
+                  style="background: rgba(215, 255, 0, 0.12); color: #d7ff00"
+                >
+                  84
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl bg-slate-900/80 p-3">
+                <div class="flex justify-between text-xs">
+                  <span>Valor</span><b style="color: #d7ff00">€24.0M</b>
+                </div>
+                <div class="mt-2 grid grid-cols-4 gap-1 text-center text-xs">
+                  <div><b class="block text-sm">79</b>RIT</div>
+                  <div><b class="block text-sm">88</b>FIN</div>
+                  <div><b class="block text-sm">76</b>CAB</div>
+                  <div><b class="block text-sm">81</b>FIS</div>
+                </div>
+              </div>
+              <button
+                class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
+                style="background: #d7ff00; color: #0d1b2a"
+                type="button"
+                data-price="24000000"
+                data-player="Luca Moretti"
+              >
+                <i
+                  data-lucide="shopping-bag"
+                  aria-hidden="true"
+                  style="width: 16px; height: 16px"
+                ></i>
+                Comprar
+              </button>
+            </article>
+            <article
+              class="market-card player-card rounded-2xl border border-slate-700/80 bg-slate-950/35 p-3 flex-shrink-0"
+              data-role="defense"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <p
+                    class="text-xs font-black uppercase tracking-[0.15em]"
+                    style="color: #d7ff00"
+                  >
+                    Nac.
+                  </p>
+                  <h3 class="mt-0.5 text-sm font-black">Diego Valencia</h3>
+                  <p class="text-xs text-slate-300">Zagueiro • 25a</p>
+                </div>
+                <div
+                  class="rounded-lg px-2 py-1 text-xs font-black flex-shrink-0"
+                  style="background: rgba(215, 255, 0, 0.12); color: #d7ff00"
+                >
+                  80
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl bg-slate-900/80 p-3">
+                <div class="flex justify-between text-xs">
+                  <span>Valor</span><b style="color: #d7ff00">€13.4M</b>
+                </div>
+                <div class="mt-2 grid grid-cols-4 gap-1 text-center text-xs">
+                  <div><b class="block text-sm">84</b>DEF</div>
+                  <div><b class="block text-sm">82</b>FOR</div>
+                  <div><b class="block text-sm">78</b>CAB</div>
+                  <div><b class="block text-sm">72</b>VEL</div>
+                </div>
+              </div>
+              <button
+                class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
+                style="background: #d7ff00; color: #0d1b2a"
+                type="button"
+                data-price="13400000"
+                data-player="Diego Valencia"
+              >
+                <i
+                  data-lucide="shopping-bag"
+                  aria-hidden="true"
+                  style="width: 16px; height: 16px"
+                ></i>
+                Comprar
+              </button>
+            </article>
+          </div>
+        </section>
+        <section class="md:col-span-2 flex-shrink-0">
+          <div
+            class="glass-card flex flex-col gap-3 rounded-2xl p-4 md:flex-row md:items-center md:justify-between"
+          >
+            <div>
+              <h2 class="text-sm font-black">Resumo</h2>
+              <p id="summaryText" class="mt-1 text-xs text-slate-300">
+                Nenhuma compra concluída. Escolha reforços.
+              </p>
+            </div>
+            <button
+              id="nextButton"
+              class="action-btn flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-xs font-black uppercase tracking-[0.12em] flex-shrink-0"
+              style="background: #d7ff00; color: #0d1b2a"
+              type="button"
+            >
+              <span id="nextButtonText">Avançar</span>
+              <i
+                data-lucide="arrow-right"
+                aria-hidden="true"
+                style="width: 16px; height: 16px"
+              ></i>
+            </button>
+          </div>
+        </section>
+      </main>
+      <div
+        id="toast"
+        class="toast fixed bottom-5 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-lg border border-lime-300/30 bg-slate-950 px-4 py-3 text-center text-xs font-bold text-slate-100 shadow-2xl"
+      >
+        Ação realizada.
+      </div>
+    </div>
+    <script src="../js/market.js"></script>
+  </body>
+</html>
