@@ -252,7 +252,7 @@ function renderPlayers() {
               <div class="grid grid-cols-2 gap-2 text-sm">
                 ${[
                   ["Pace", p.Pace],
-                  ["Chute", p.chute],
+                  ["Chute", p.Chute],
                   ["Passe", p.Passe],
                   ["Drible", p.Drible],
                   ["Defesa", p.Defesa],
