@@ -31,6 +31,14 @@ body {
   background-color: transparent !important;
 }
 
+.btn-filter {
+  background-color: none;
+}
+
+.btn-filter:active {
+  background-color: #d7ff00;
+}
+
 .player-card {
   transition:
     transform 220ms ease,
@@ -39,6 +47,11 @@ body {
 }
 
 .action-btn {
+  background: #d7ff00;
+  color: #0d1b2a;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-family: "Oswald", sans-serif;
   transition:
     transform 180ms ease,
     filter 180ms ease,
@@ -50,8 +63,9 @@ body {
 }
 
 .buy-btn {
-  border: 1px solid #d7ff00; 
-  color: #d7ff00
+  border: 1px solid #d7ff00;
+  background-color: transparent;
+  color: #0d1b2a;
 }
 
 .action-btn:active {

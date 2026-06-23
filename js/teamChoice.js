@@ -330,16 +330,24 @@ function renderNextMatch() {
   const info = document.getElementById("matchInfo");
   info.innerHTML = `
         <div class="text-center mb-3 pt-10">
-            <div class="flex items-center gap-3 mb-3">
-                <div class="flex-1">
-                <div class="font-display font-semibold text-[24px]" style="color:#fff;">Grêmio</div>
-                <div class="text-[16px] font-mono" style="color: var(--text-muted);">Home</div>
+          <div class="flex items-center justify-center gap-8 mb-3 flex-wrap">
+            <div class="match-team-block flex-col">
+              <div class="team-badge badge-lg" style="background: #0b3d91; color: #fff;">GRE</div>
+              <div class="team-label">
+                <div class="font-display font-semibold text-sm sm:text-base uppercase" style="color:#fff;">Grêmio</div>
+                <div class="text-[10px] uppercase font-mono" style="color: var(--text-muted);">Em casa</div>
+              </div>
             </div>
+            <div class="font-mono text-md md:text-base uppercase tracking-widest" style="color: var(--lime); margin-left: 50px; margin-right: 50px">vs</div>
+            <div class="match-team-block flex-col">
+              <div class="team-badge" style="background: #b70f0f; color: #fff;">FLA</div>
+              <div class="team-label">
+                <div class="font-display font-semibold text-sm sm:text-base uppercase" style="color:#fff;">${nextMatch.opponent}</div>
+                <div class="text-[10px] uppercase font-mono" style="color: var(--text-muted);">Fora</div>
+              </div>
+            </div>
+          </div>
         </div>
-          <div class="font-mono text-xs uppercase tracking-widest" style="color: var(--lime); margin-bottom: 4px;">vs</div>
-          <div class="font-display font-semibold text-[24px]" style="color:#fff;">${nextMatch.opponent}</div>
-          <div class="text-[16px] font-mono" style="color: var(--text-muted);">Away</div>
-        </div> 
         <div class="divider-line my-2"></div>
         <div class="space-y-1.5 text-[14px]">
           <div class="flex items-center gap-2">
@@ -394,8 +402,6 @@ document.getElementById("startMatchBtn").addEventListener("click", () => {
       text.textContent = orig;
       window.location.href = "matchaday.html";
     }, 1000);
-
-
   }
 });
 

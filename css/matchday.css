@@ -204,16 +204,6 @@ body {
   border-top: 2px solid var(--lime);
   border-left: 2px solid var(--lime);
 }
-.corner-accent::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid var(--lime);
-  border-right: 2px solid var(--lime);
-}
 
 .status-live {
   color: var(--lime);

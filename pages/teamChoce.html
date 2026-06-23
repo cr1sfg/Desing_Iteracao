@@ -58,7 +58,6 @@
             <h1
               id="teamName"
               class="font-display font-bold text-3xl sm:text-4xl tracking-wider uppercase"
-              style="color: #d7ff00"
             >
               Escalação
             </h1>
@@ -127,7 +126,9 @@
             id="nextMatchPanel"
             class="flex-shrink-0 flex flex-col border-b border-white/10"
           >
-            <div class="diagonal-lines px-5 py-2.5 flex items-center flex-wrap gap-2 border-b border-white/5">
+            <div
+              class="diagonal-lines px-5 py-2.5 flex items-center flex-wrap gap-2 border-b border-white/5"
+            >
               <i
                 data-lucide="calendar"
                 class="w-3.5 h-3.5"
@@ -140,26 +141,26 @@
               </h3>
             </div>
             <div id="matchInfo" class="space-y-2.5 pl-4"></div>
-          
-          <div
-            class="flex-shrink-0 flex gap-2 px-4 py-3 border-b border-white/10"
-          >
-            <button
-              id="buyBtn"
-              class="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider font-semibold transition-all"
-              onclick="window.location.href = 'market.html'"
-              style="
-                background: rgba(215, 255, 0, 0.1);
-                color: var(--lime);
-                border: 1px solid var(--lime);
-                border-radius: 4px;
-              "
+
+            <div
+              class="flex-shrink-0 flex gap-2 px-4 py-3 border-b border-white/10"
             >
-              <i data-lucide="plus-circle" class="w-7 h-7"></i>
-              Mercado
-            </button>
-          </div>
-          
+              <button
+                id="buyBtn"
+                class="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider font-semibold transition-all"
+                onclick="window.location.href = 'market2.html'"
+                style="
+                  background: rgba(215, 255, 0, 0.1);
+                  color: var(--lime);
+                  border: 1px solid var(--lime);
+                  border-radius: 4px;
+                "
+              >
+                <i data-lucide="plus-circle" class="w-7 h-7"></i>
+                Mercado
+              </button>
+            </div>
+
             <div class="sPace-y-2">
               <div
                 class="text-[12px] font-mono uppercase tracking-widest"
@@ -172,8 +173,7 @@
                 style="color: var(--text-muted)"
                 class="sPace-y-1 text-xs"
               >
-                <div class="font-mono">— Sem histórico de transferências
-                </div>
+                <div class="font-mono">— Sem histórico de transferências</div>
               </div>
             </div>
           </div>

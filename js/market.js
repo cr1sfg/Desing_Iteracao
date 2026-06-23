@@ -118,9 +118,7 @@ document.getElementById("filterDefense").addEventListener("click", (event) => {
 });
 
 document.getElementById("nextButton").addEventListener("click", () => {
-  showToast(
-    "Próxima página está sendo preparada",
-  );
+  showToast("Próxima página está sendo preparada");
 });
 
 function applyConfig(config) {

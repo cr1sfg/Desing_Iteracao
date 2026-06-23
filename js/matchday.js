@@ -126,11 +126,11 @@ const matches = [
     as: 1,
     venue: "Maracanã",
     city: "Rio de Janeiro",
-    date: "Sat, 12 Oct 2024",
+    date: "Sab, 12 Out 2026",
     time: "16:00",
     attendance: "68,245",
     referee: "Anderson Daronco",
-    weather: "24°C Clear",
+    weather: "24°C Limpo",
     goals: [
       { team: "home", player: "Pedro", minute: 23, type: "goal" },
       { team: "away", player: "Endrick", minute: 41, type: "goal" },
@@ -162,7 +162,7 @@ const matches = [
     time: "18:30",
     attendance: "45,012",
     referee: "Wilton Pereira Sampaio",
-    weather: "22°C Cloudy",
+    weather: "22°C Nublado",
     goals: [
       { team: "away", player: "Calleri", minute: 12, type: "goal" },
       { team: "home", player: "Yuri Alberto", minute: 78, type: "goal" },
@@ -193,7 +193,7 @@ const matches = [
     time: "16:00",
     attendance: "42,800",
     referee: "Raphael Claus",
-    weather: "26°C Sunny",
+    weather: "26°C Enrolarado",
     goals: [
       { team: "home", player: "Savarino", minute: 8, type: "goal" },
       { team: "home", player: "Almada", minute: 34, type: "goal" },
@@ -225,7 +225,7 @@ const matches = [
     time: "18:30",
     attendance: "51,300",
     referee: "Flavio de Souza",
-    weather: "18°C Rain",
+    weather: "18°C Chuvoso",
     goals: [
       { team: "home", player: "Suárez", minute: 19, type: "goal" },
       { team: "away", player: "Wanderson", minute: 45, type: "goal" },
@@ -258,7 +258,7 @@ const matches = [
     time: "20:00",
     attendance: "44,100",
     referee: "Bruno Arleu",
-    weather: "20°C Clear",
+    weather: "20°C Limpo",
     goals: [{ team: "home", player: "Hulk", minute: 56, type: "goal" }],
     stats: {
       poss: [54, 46],
@@ -286,7 +286,7 @@ const matches = [
     time: "19:00",
     attendance: "21,400",
     referee: "Paulo Cesar Zanovelli",
-    weather: "25°C Clear",
+    weather: "25°C Limpo",
     goals: [
       { team: "away", player: "Marcos Leonardo", minute: 31, type: "goal" },
       { team: "away", player: "Soteldo", minute: 74, type: "goal" },
@@ -317,7 +317,7 @@ const matches = [
     time: "21:30",
     attendance: "38,500",
     referee: "Ramon Abatti",
-    weather: "28°C Humid",
+    weather: "28°C Úmido",
     goals: [
       { team: "home", player: "Everaldo", minute: 27, type: "goal" },
       { team: "away", player: "Lucero", minute: 82, type: "pen" },
@@ -348,7 +348,7 @@ const matches = [
     time: "19:00",
     attendance: "28,900",
     referee: "Rodrigo Batista",
-    weather: "19°C Cloudy",
+    weather: "19°C Nublado",
     goals: [
       { team: "home", player: "Pablo", minute: 15, type: "goal" },
       { team: "home", player: "Canobbio", minute: 63, type: "goal" },
@@ -379,7 +379,7 @@ const matches = [
     time: "21:30",
     attendance: "18,200",
     referee: "Savio Pereira",
-    weather: "17°C Rain",
+    weather: "17°C Chuvoso",
     goals: [
       { team: "away", player: "Alerrandro", minute: 22, type: "goal" },
       { team: "home", player: "Gilberto", minute: 54, type: "goal" },
@@ -411,7 +411,7 @@ const matches = [
     time: "20:00",
     attendance: "16,500",
     referee: "Braulio da Silva",
-    weather: "16°C Clear",
+    weather: "16°C Limpo",
     goals: [],
     stats: {
       poss: [50, 50],
@@ -532,13 +532,13 @@ function renderDetail() {
                 </div>
                 <div class="font-display font-bold text-sm sm:text-base uppercase tracking-wider truncate w-full" style="color:#fff">${home.name}</div>
                 <div class="text-[10px] font-mono uppercase tracking-widest" style="color: ${homeWin ? "var(--lime)" : "var(--text-muted)"};">
-                  ${homeWin ? "★ Winner" : homeWin === awayWin ? "Draw" : "Away"}
+                  ${homeWin ? "★ Vencedor" : homeWin === awayWin ? "Empatado" : "Fora"}
                 </div>
               </div>
 
               <!-- Score -->
               <div class="flex flex-col items-center gap-1 px-2">
-                <div class="text-[9px] font-mono uppercase tracking-[0.25em]" style="color: var(--text-muted);">Full Time</div>
+
                 <div class="flex items-baseline gap-3 sm:gap-4">
                   <span class="big-number" style="color: ${homeWin ? "var(--lime)" : "#fff"}">${m.hs}</span>
                   <span class="font-display text-2xl" style="color: var(--text-muted);">:</span>
@@ -554,7 +554,7 @@ function renderDetail() {
                 </div>
                 <div class="font-display font-bold text-sm sm:text-base uppercase tracking-wider truncate w-full" style="color:#fff">${away.name}</div>
                 <div class="text-[10px] font-mono uppercase tracking-widest" style="color: ${awayWin ? "var(--lime)" : "var(--text-muted)"};">
-                  ${awayWin ? "★ Winner" : homeWin === awayWin ? "Draw" : "Home"}
+                  ${awayWin ? "★ Vencedor" : homeWin === awayWin ? "Empatado" : "Em casa"}
                 </div>
               </div>
             </div>
@@ -564,7 +564,7 @@ function renderDetail() {
           <div class="px-5 py-4 border-b border-white/5">
             <div class="flex items-center gap-2 mb-3">
               <i data-lucide="target" class="w-3.5 h-3.5" style="color: var(--lime);"></i>
-              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Goal Scorers</h3>
+              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Autor do gol</h3>
             </div>
             ${
               m.goals.length === 0
@@ -640,7 +640,7 @@ function renderDetail() {
           <div class="px-5 py-4 border-b border-white/5">
             <div class="flex items-center gap-2 mb-3">
               <i data-lucide="pie-chart" class="w-3.5 h-3.5" style="color: var(--lime);"></i>
-              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Ball Possession</h3>
+              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Posse de bola</h3>
             </div>
             <div class="flex items-center gap-3 mb-1.5">
               <span class="font-display font-bold text-lg" style="color:#fff; width: 40px;">${m.stats.poss[0]}%</span>
@@ -660,17 +660,17 @@ function renderDetail() {
           <div class="px-5 py-4 border-b border-white/5">
             <div class="flex items-center gap-2 mb-3">
               <i data-lucide="bar-chart-3" class="w-3.5 h-3.5" style="color: var(--lime);"></i>
-              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Match Statistics</h3>
+              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Estatísticas da partida</h3>
             </div>
             <div class="space-y-2.5">
-              ${statBar("Shots", m.stats.shots[0], m.stats.shots[1])}
-              ${statBar("Shots on Target", m.stats.shotsOn[0], m.stats.shotsOn[1])}
-              ${statBar("Corners", m.stats.corners[0], m.stats.corners[1])}
-              ${statBar("Fouls", m.stats.fouls[0], m.stats.fouls[1])}
+              ${statBar("Chutes", m.stats.shots[0], m.stats.shots[1])}
+              ${statBar("Chutes a gol", m.stats.shotsOn[0], m.stats.shotsOn[1])}
+              ${statBar("Escanteios", m.stats.corners[0], m.stats.corners[1])}
+              ${statBar("Faltas", m.stats.fouls[0], m.stats.fouls[1])}
               ${statBar("Passes", m.stats.passes[0], m.stats.passes[1])}
-              ${statBar("Pass Accuracy %", m.stats.passAcc[0], m.stats.passAcc[1])}
-              ${statBar("Offsides", m.stats.offsides[0], m.stats.offsides[1])}
-              ${statBar("Saves", m.stats.saves[0], m.stats.saves[1])}
+              ${statBar("Precisão de passe %", m.stats.passAcc[0], m.stats.passAcc[1])}
+              ${statBar("Laterais", m.stats.offsides[0], m.stats.offsides[1])}
+              ${statBar("Defesas", m.stats.saves[0], m.stats.saves[1])}
             </div>
           </div>
 
@@ -678,15 +678,15 @@ function renderDetail() {
           <div class="px-5 py-4 border-b border-white/5">
             <div class="flex items-center gap-2 mb-3">
               <i data-lucide="square" class="w-3.5 h-3.5" style="color: var(--lime);"></i>
-              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Disciplinary</h3>
+              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Cartões</h3>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center">
               <div></div>
               <div class="flex items-center justify-center gap-2">
                 <div class="w-3 h-4" style="background:#FFD700;"></div>
-                <span class="text-[10px] font-mono uppercase tracking-wider" style="color: var(--text-muted);">Yellow</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider" style="color: var(--text-muted);">Amarelo</span>
                 <div class="w-3 h-4" style="background:#E30613;"></div>
-                <span class="text-[10px] font-mono uppercase tracking-wider" style="color: var(--text-muted);">Red</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider" style="color: var(--text-muted);">Vermelho</span>
               </div>
               <div></div>
 
@@ -722,23 +722,23 @@ function renderDetail() {
           <div class="px-5 py-4">
             <div class="flex items-center gap-2 mb-3">
               <i data-lucide="clipboard-list" class="w-3.5 h-3.5" style="color: var(--lime);"></i>
-              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Match Info</h3>
+              <h3 class="font-display uppercase tracking-[0.2em] text-xs font-semibold">Informações da partida</h3>
             </div>
             <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
               <div class="flex justify-between">
-                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Referee</span>
+                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Árbitro</span>
                 <span class="font-display font-medium" style="color:#fff">${m.referee}</span>
               </div>
               <div class="flex justify-between">
-                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Weather</span>
+                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Temperatura</span>
                 <span class="font-display font-medium" style="color:#fff">${m.weather}</span>
               </div>
               <div class="flex justify-between">
-                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Attendance</span>
+                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Público</span>
                 <span class="font-display font-medium" style="color:#fff">${m.attendance}</span>
               </div>
               <div class="flex justify-between">
-                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">City</span>
+                <span class="font-mono uppercase tracking-wider" style="color: var(--text-muted);">Cidade</span>
                 <span class="font-display font-medium" style="color:#fff">${m.city}</span>
               </div>
             </div>

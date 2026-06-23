@@ -126,16 +126,6 @@ body {
   border-top: 2px solid var(--lime);
   border-left: 2px solid var(--lime);
 }
-.corner-accent::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid var(--lime);
-  border-right: 2px solid var(--lime);
-}
 
 .divider-line {
   height: 1px;
@@ -145,6 +135,48 @@ body {
     rgba(215, 255, 0, 0.3),
     transparent
   );
+}
+
+.match-team-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.team-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.team-badge {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  font-size: 20px;
+  border-width: 3px;
+}
+
+@media (max-width: 640px) {
+  .match-team-block {
+    gap: 0.4rem;
+  }
+  .team-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 900px) {
