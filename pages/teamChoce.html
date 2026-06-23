@@ -4,7 +4,7 @@
     <script src="/_sdk/telemetry_sdk.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brasileirão Team ManIdader</title>
+    <title>Footfute Brasil</title>
     <script src="/_sdk/element_sdk.js"></script>
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -58,7 +58,7 @@
             <h1
               id="teamName"
               class="font-display font-bold text-3xl sm:text-4xl tracking-wider uppercase"
-              style="color: #fff"
+              style="color: #d7ff00"
             >
               Escalação
             </h1>
@@ -117,7 +117,7 @@
           ></div>
         </section>
         <section
-          class="relative flex flex-col min-h-0 corner-accent"
+          class="relative flex flex-col min-h-0 corner-accent overflow-y-auto custom-scroll"
           style="
             background: var(--navy-light);
             border: 1px solid rgba(215, 255, 0, 0.15);
@@ -125,22 +125,22 @@
         >
           <div
             id="nextMatchPanel"
-            class="flex-shrink-0 flex flex-col px-4 py-4 border-b border-white/10"
+            class="flex-shrink-0 flex flex-col border-b border-white/10"
           >
-            <div class="flex items-center gap-2 mb-3">
+            <div class="diagonal-lines px-5 py-2.5 flex items-center flex-wrap gap-2 border-b border-white/5">
               <i
                 data-lucide="calendar"
                 class="w-3.5 h-3.5"
                 style="color: var(--lime)"
               ></i>
               <h3
-                class="font-display uppercase tracking-[0.2em] text-xs font-semibold"
+                class="font-display uppercase tracking-[0.2em] text-xs color: var(--lime)"
               >
                 Próximo Jogo
               </h3>
             </div>
-            <div id="matchInfo" class="space-y-2.5"></div>
-          </div>
+            <div id="matchInfo" class="space-y-2.5 pl-4"></div>
+          
           <div
             class="flex-shrink-0 flex gap-2 px-4 py-3 border-b border-white/10"
           >
@@ -159,7 +159,7 @@
               Mercado
             </button>
           </div>
-          <div class="flex-1 overflow-scroll custom-scroll px-4 py-3">
+          
             <div class="sPace-y-2">
               <div
                 class="text-[12px] font-mono uppercase tracking-widest"
@@ -172,7 +172,8 @@
                 style="color: var(--text-muted)"
                 class="sPace-y-1 text-xs"
               >
-                <div class="font-mono">— Sem histórico de transferências</div>
+                <div class="font-mono">— Sem histórico de transferências
+                </div>
               </div>
             </div>
           </div>

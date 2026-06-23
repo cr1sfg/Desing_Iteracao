@@ -213,11 +213,10 @@ const teamPlayers = [
 
 const nextMatch = {
   opponent: "Flamengo",
-  date: "Sat, 21 Oct 2024",
+  date: "Sab, 21 Out 2026",
   time: "16:00",
   venue: "Arena do Grêmio",
   stadium_capacity: "55,000",
-  competition: "Brasileirão Round 29",
 };
 
 let selectedPlayers = new Set();
@@ -242,7 +241,7 @@ function renderPlayers() {
                   <span class="font-display font-semibold text-mg truncate" style="color: #fff;">#${p.Número} ${p.name}</span>
                   <span class="text-[16px] font-mono uppercase px-2 py-0.5 rounded" style="background: rgba(215,255,0,0.15); color: var(--lime);">${p.Posição}</span>
                 </div>
-                <div class="flex items-center gap-2 text-[16px]" style="color: var(--text-muted);">
+                <div class="flex items-center gap-2 text-[14px]" style="color: var(--text-muted);">
                   <span class="font-mono">Idade: ${p.Idade}</span>
                   <span class="font-mono">Mercado: ${p.Mercado}</span>
                 </div>
@@ -317,7 +316,7 @@ function updateSelection() {
   const btn = document.getElementById("startMatchBtn");
 
   if (selectedPlayers.size === 11) {
-    status.textContent = "✓ Lineup ready to start match!";
+    status.textContent = "✓ Time pronto para partida";
     status.style.color = "var(--lime)";
     btn.disabled = false;
   } else {
@@ -342,7 +341,7 @@ function renderNextMatch() {
           <div class="text-[16px] font-mono" style="color: var(--text-muted);">Away</div>
         </div> 
         <div class="divider-line my-2"></div>
-        <div class="space-y-1.5 text-[12px]">
+        <div class="space-y-1.5 text-[14px]">
           <div class="flex items-center gap-2">
             <i data-lucide="calendar" class="w-3 h-3" style="color: var(--lime);"></i>
             <div>
@@ -373,7 +372,7 @@ function renderNextMatch() {
           </div>
         </div>
         <div class="divider-line my-2"></div>
-        <div class="font-display font-semibold text-[14px] pt-2" style="color:#fff;">${nextMatch.competition}</div>
+       
       `;
 
   if (window.lucide) lucide.createIcons();
@@ -393,7 +392,10 @@ document.getElementById("startMatchBtn").addEventListener("click", () => {
 
     setTimeout(() => {
       text.textContent = orig;
+      window.location.href = "matchaday.html";
     }, 1000);
+
+
   }
 });
 

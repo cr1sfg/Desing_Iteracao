@@ -4,7 +4,7 @@
     <script src="/_sdk/telemetry_sdk.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de Negociação de Jogadores</title>
+    <title>Footfute Brasil</title>
     <script src="/_sdk/element_sdk.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -22,19 +22,9 @@
           class="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between"
         >
           <div class="fade-in">
-            <div
-              class="mb-1 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.28em]"
-              style="border-color: rgba(215, 255, 0, 0.36); color: #d7ff00"
-            >
-              <span
-                class="h-2 w-2 rounded-full"
-                style="background: #d7ff00"
-              ></span>
-              Grêmio Admin
-            </div>
             <h1
               id="screenTitle"
-              class="text-3xl font-black tracking-tight md:text-4xl"
+              class="text-3xl font-black tracking-tight md:text-4xl uppercase"
             >
               Central de Negociações
             </h1>
@@ -87,11 +77,11 @@
           </aside>
         </div>
       </header>
-      <main
-        class="mx-auto max-w-7xl gap-4 px-5 pb-4 md:px-8 flex-1 flex flex-col md:grid md:grid-cols-[0.92fr_1.35fr] w-full overflow-hidden"
+      <main 
+        class="main-grid flex-1 grid gap-3 px-6 pb-3 min-h-0"
       >
         <section
-          class="glass-card fade-in delay-2 rounded-2xl p-4 md:p-5 flex flex-col overflow-hidden"
+          class="glass-card fade-in delay-2 p-4 md:p-5 flex flex-col overflow-hidden"
           aria-labelledby="sellTitle"
         >
           <div
@@ -197,7 +187,7 @@
                 <div class="flex gap-2">
                   <div
                     class="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-black flex-shrink-0"
-                    style="background: #d7ff00; color: #0d1b2a"
+                    style="border: 1px solid #fff; color: #fff"
                   >
                     ZG
                   </div>
@@ -233,7 +223,7 @@
           </div>
         </section>
         <section
-          class="glass-card fade-in delay-3 rounded-2xl p-4 md:p-5 flex flex-col overflow-hidden"
+          class="glass-card fade-in delay-3 p-4 md:p-5 flex flex-col overflow-hidden"
           aria-labelledby="buyTitle"
         >
           <div
@@ -284,7 +274,6 @@
                 <div>
                   <p
                     class="text-xs font-black uppercase tracking-[0.15em]"
-                    style="color: #d7ff00"
                   >
                     Santos
                   </p>
@@ -311,7 +300,6 @@
               </div>
               <button
                 class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
-                style="background: #d7ff00; color: #0d1b2a"
                 type="button"
                 data-price="18500000"
                 data-player="João Henrique"
@@ -332,7 +320,6 @@
                 <div>
                   <p
                     class="text-xs font-black uppercase tracking-[0.15em]"
-                    style="color: #d7ff00"
                   >
                     River
                   </p>
@@ -359,7 +346,6 @@
               </div>
               <button
                 class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
-                style="background: #d7ff00; color: #0d1b2a"
                 type="button"
                 data-price="16200000"
                 data-player="Martín Rojas"
@@ -380,7 +366,6 @@
                 <div>
                   <p
                     class="text-xs font-black uppercase tracking-[0.15em]"
-                    style="color: #d7ff00"
                   >
                     Benfica
                   </p>
@@ -407,7 +392,6 @@
               </div>
               <button
                 class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
-                style="background: #d7ff00; color: #0d1b2a"
                 type="button"
                 data-price="24000000"
                 data-player="Luca Moretti"
@@ -428,7 +412,6 @@
                 <div>
                   <p
                     class="text-xs font-black uppercase tracking-[0.15em]"
-                    style="color: #d7ff00"
                   >
                     Nac.
                   </p>
@@ -455,7 +438,6 @@
               </div>
               <button
                 class="buy-btn mt-2 flex w-full items-center justify-center gap-1 rounded-lg px-3 py-2 text-xs font-black action-btn"
-                style="background: #d7ff00; color: #0d1b2a"
                 type="button"
                 data-price="13400000"
                 data-player="Diego Valencia"
@@ -472,7 +454,7 @@
         </section>
         <section class="md:col-span-2 flex-shrink-0">
           <div
-            class="glass-card flex flex-col gap-3 rounded-2xl p-4 md:flex-row md:items-center md:justify-between"
+            class="flex flex-col gap-3 rounded-2xl p-4 md:flex-row md:items-center md:justify-between"
           >
             <div>
               <h2 class="text-sm font-black">Resumo</h2>

@@ -50,6 +50,17 @@ body {
   background-size: 30px 30px;
 }
 
+/* Diagonal slash lines (decorative) */
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(215, 255, 0, 0.08) 8px,
+    rgba(215, 255, 0, 0.08) 9px
+  );
+}
+
 @keyframes pulse-dot {
   0%,
   100% {

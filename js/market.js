@@ -2,7 +2,7 @@ const defaultConfig = {
   background_color: "#0D1B2A",
   surface_color: "#102234",
   text_color: "#F4F7F5",
-  primary_action_color: "#D7FF00",
+  primary_action_color: "#d7ff00",
   secondary_action_color: "#7C8EA3",
   font_family: "Sora",
   font_size: 16,
@@ -63,7 +63,7 @@ function setActiveFilter(activeButton) {
     button.style.background = "transparent";
     button.style.color = "#F4F7F5";
   });
-  activeButton.style.background = "#D7FF00";
+  activeButton.style.background = "#d7ff00";
   activeButton.style.color = "#0D1B2A";
 }
 
@@ -119,7 +119,7 @@ document.getElementById("filterDefense").addEventListener("click", (event) => {
 
 document.getElementById("nextButton").addEventListener("click", () => {
   showToast(
-    "Próxima página preparada. No Canva, conecte este botão ao próximo passo do seu fluxo.",
+    "Próxima página está sendo preparada",
   );
 });
 
@@ -179,12 +179,12 @@ function applyConfig(config) {
     }
   });
 
-  document.querySelectorAll('[style*="#D7FF00"]').forEach((element) => {
+  document.querySelectorAll('[style*="#d7ff00"]').forEach((element) => {
     const current = element.getAttribute("style");
     element.setAttribute(
       "style",
       current
-        .replaceAll("#D7FF00", primaryActionColor)
+        .replaceAll("#d7ff00", primaryActionColor)
         .replaceAll("215,255,0", "215,255,0"),
     );
   });
