@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <script src="/_sdk/telemetry_sdk.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brasileirão Transfer Market</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/market2.css" />
+  </head>
+  <body class="h-full w-full">
+    <main class="flex flex-col pitch-pattern" style="background: var(--navy)">
+      <header class="flex-shrink-0 px-6 pt-5 pb-4">
+        <div
+          class="flex items-center justify-between text-xs font-mono uppercase tracking-widest mb-4"
+          style="color: var(--text-muted)"
+        >
+          <div class="flex items-center gap-2">
+            <span
+              class="pulse-dot w-2 h-2 rounded-full"
+              style="background: var(--lime)"
+            ></span>
+            <span>Mercado de transferência 2026</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i
+              data-lucide="credit-card"
+              class="w-4 h-4"
+              style="color: var(--lime)"
+            ></i>
+            <span
+              id="budgetDisplay"
+              style="color: var(--lime); font-size: medium"
+              >R$ 150,000,000</span
+            >
+          </div>
+        </div>
+        <div class="divider-line mb-4"></div>
+        <div id="notificationContainer" class="notification-panel"></div>
+        <div class="text-center">
+          <h1
+            id="teamName"
+            class="font-display font-bold text-3xl tracking-wider uppercase mb-2"
+            style="color: #fff"
+          >
+            Central de negociação
+          </h1>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.3em]"
+            style="color: var(--lime)"
+          >
+            Gerenciar Transferências
+          </p>
+        </div>
+      </header>
+      <div
+        class="flex-1 grid gap-4 px-6 pb-6 min-h-0"
+        style="grid-template-columns: 1fr 1fr; overflow: hidden"
+      >
+        <!-- SELL SECTION -->
+        <section
+          class="flex flex-col min-h-0 relative"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+          "
+        >
+          <div
+            class="flex-shrink-0 flex items-center justify-between px-5 py-3 border-b"
+            style="border-color: rgba(255, 68, 68, 0.2)"
+          >
+            <div class="flex items-center gap-3">
+              <div class="w-1 h-5" style="background: #ff4444"></div>
+              <h2
+                id="sellTitle"
+                class="font-display uppercase tracking-[0.2em] text-sm font-semibold"
+              >
+                Jogadores em negociação
+              </h2>
+            </div>
+            <i
+              data-lucide="trending-down"
+              class="w-4 h-4"
+              style="color: #ff4444"
+            ></i>
+          </div>
+          <div
+            id="sellList"
+            class="flex-1 overflow-y-auto custom-scroll space-y-2 p-4"
+          ></div>
+        </section>
+        <!-- BUY SECTION -->
+        <section
+          class="flex flex-col min-h-0 relative"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(68, 255, 68, 0.2);
+          "
+        >
+          <div
+            class="flex-shrink-0 flex items-center justify-between px-5 py-3 border-b"
+            style="border-color: rgba(68, 255, 68, 0.2)"
+          >
+            <div class="flex items-center gap-3">
+              <div class="w-1 h-5" style="background: #44ff44"></div>
+              <h2
+                id="buyTitle"
+                class="font-display uppercase tracking-[0.2em] text-sm font-semibold"
+              >
+                Compra de Jogadores
+              </h2>
+            </div>
+            <i
+              data-lucide="trending-up"
+              class="w-4 h-4"
+              style="color: #44ff44"
+            ></i>
+          </div>
+          <div
+            id="buyList"
+            class="flex-1 overflow-y-auto custom-scroll space-y-2 p-4"
+          ></div>
+        </section>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="flex-shrink-0 px-6 pb-5">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div
+          class="flex items-center gap-3 text-xs font-mono uppercase tracking-wider"
+          style="color: var(--text-muted)"
+        >
+          <div
+            class="flex items-center gap-3 text-xs font-mono uppercase tracking-wider"
+            style="color: var(--text-muted)"
+          >
+            <i data-lucide="info" class="w-4 h-4"></i>
+            <span id="summaryText"
+              >Nenhuma compra concluída. Escolha reforços.</span
+            >
+          </div>
+        </div>
+        <button
+          id="continueBtn"
+          class="btn-primary px-8 py-3 flex items-center gap-3 uppercase text-sm"
+        >
+          <span
+            id="continueBtnText"
+            onclick="window.location.href = 'teamChoice2.html'"
+            >Finalizar negociações</span
+          >
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </footer>
+    <script src="../js/market2.js"></script>
+  </body>
+</html>

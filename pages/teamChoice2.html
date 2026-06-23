@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <script src="/_sdk/telemetry_sdk.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footfute Brasil</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://t.contentsquare.net/uxa/8f04593b42a1b.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="../css/teamChoice2.css" />
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full">
+    <main
+      class="h-full w-full flex flex-col pitch-pattern"
+      style="background: var(--navy)"
+    >
+      <header class="flex-shrink-0 px-6 pt-5 pb-4 relative">
+        <div
+          class="flex items-center justify-between text-xs font-mono uppercase tracking-widest"
+          style="color: var(--text-muted)"
+        >
+          <div class="flex items-center gap-2">
+            <span
+              class="pulse-dot w-2 h-2 rounded-full"
+              style="background: var(--lime)"
+            ></span>
+            <span id="seasonLabel">Temporada 2026</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="hidden sm:inline">CBF / Confederação Brasileira</span>
+            <span id="currentDate">Preparação do time</span>
+          </div>
+        </div>
+        <div class="divider-line my-3"></div>
+        <div class="text-center relative">
+          <div class="flex items-center justify-center gap-3 mb-1">
+            <span
+              class="h-px w-12 sm:w-24"
+              style="background: var(--lime)"
+            ></span>
+            <i
+              data-lucide="users"
+              class="w-4 h-4"
+              style="color: var(--lime)"
+            ></i>
+            <h1
+              id="teamName"
+              class="font-display font-bold text-3xl sm:text-4xl tracking-wider uppercase"
+            >
+              Escalação
+            </h1>
+            <i
+              data-lucide="users"
+              class="w-4 h-4"
+              style="color: var(--lime)"
+            ></i>
+            <span
+              class="h-px w-12 sm:w-24"
+              style="background: var(--lime)"
+            ></span>
+          </div>
+          <p
+            class="font-mono text-xs sm:text-sm uppercase tracking-[0.3em]"
+            style="color: var(--lime)"
+          >
+            Selecione seu time
+          </p>
+        </div>
+      </header>
+      <div
+        class="main-grid flex-1 grid gap-3 px-6 pb-3 min-h-0"
+        style="grid-template-columns: 70% 1fr"
+      >
+        <section
+          class="relative flex flex-col min-h-0"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <div
+            class="flex-shrink-0 flex items-center justify-between px-5 py-3 border-b border-white/5"
+          >
+            <div class="flex items-center gap-3">
+              <div class="w-1 h-5" style="background: var(--lime)"></div>
+              <h2
+                id="playersHeader"
+                class="font-display uppercase tracking-[0.2em] text-sm font-semibold"
+              >
+                Escalação do Time
+              </h2>
+            </div>
+            <div
+              class="flex items-center gap-2 text-xs font-mono uppercase"
+              style="color: var(--lime)"
+            >
+              <span id="selectedCount">0</span
+              ><span style="color: var(--text-muted)">/11</span>
+            </div>
+          </div>
+          <div
+            id="playerList"
+            class="flex-1 overflow-y-auto custom-scroll min-h-0 space-y-1 p-3"
+          ></div>
+        </section>
+        <section
+          class="relative flex flex-col min-h-0 corner-accent overflow-y-auto custom-scroll"
+          style="
+            background: var(--navy-light);
+            border: 1px solid rgba(215, 255, 0, 0.15);
+          "
+        >
+          <div
+            id="nextMatchPanel"
+            class="flex-shrink-0 flex flex-col border-b border-white/10"
+          >
+            <div
+              class="diagonal-lines px-5 py-2.5 flex items-center flex-wrap gap-2 border-b border-white/5"
+            >
+              <i
+                data-lucide="calendar"
+                class="w-3.5 h-3.5"
+                style="color: var(--lime)"
+              ></i>
+              <h3
+                class="font-display uppercase tracking-[0.2em] text-xs color: var(--lime)"
+              >
+                Próximo Jogo
+              </h3>
+            </div>
+            <div id="matchInfo" class="space-y-2.5 pl-4"></div>
+
+            <div
+              class="flex-shrink-0 flex gap-2 px-4 py-3 border-b border-white/10"
+            >
+              <button
+                id="buyBtn"
+                class="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider font-semibold transition-all"
+                onclick="window.location.href = 'market2.html'"
+                style="
+                  background: rgba(215, 255, 0, 0.1);
+                  color: var(--lime);
+                  border: 1px solid var(--lime);
+                  border-radius: 4px;
+                "
+              >
+                <i data-lucide="plus-circle" class="w-7 h-7"></i>
+                Mercado
+              </button>
+            </div>
+
+            <div class="sPace-y-2">
+              <div
+                class="text-[12px] font-mono uppercase tracking-widest"
+                style="color: var(--text-muted); padding: 8px"
+              >
+                Histórico de transferências
+              </div>
+              <div
+                class=" rounded px-2 py-2"
+              >
+                <div class="flex items-center justify-between gap-2">
+                  <div>
+                    <div class="text-sm font-display font-semibold" style="color: #fff;">
+                      Gabriel
+                    </div>
+                    <div
+                      class="text-[12px] font-mono"
+                      style="color: var(--text-muted)"
+                    >
+                      CB • 26 anos
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div
+                      class="font-display font-semibold text-sm "
+                      style="color: var(--lime)"
+                    >
+                      R$ 45.0M
+                    </div>
+                    <div
+                      class="text-[12px] font-mono"
+                      style="color: var(--text-muted)"
+                    >
+                      23 jun 2026
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="divider-line my-2"></div> 
+              <div
+                class=" rounded px-2 py-2"
+              >
+                <div class="flex items-center justify-between gap-2">
+                  <div>
+                    <div class="text-sm font-display font-semibold" style="color: #fff">
+                      Rodrygo
+                    </div>
+                    <div
+                      class="text-[12px] font-mono"
+                      style="color: var(--text-muted)"
+                    >
+                      RW • 23 anos
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div
+                      class="font-display font-semibold text-sm "
+                      style="color: var(--lime)"
+                    >
+                      R$ 85.0M
+                    </div>
+                    <div
+                      class="text-[12px] font-mono"
+                      style="color: var(--text-muted)"
+                    >
+                      23 jun 2026
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="flex-shrink-0 px-6 pb-5 pt-2">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <div
+            class="flex items-center gap-3 text-xs font-mono uppercase tracking-wider"
+            style="color: var(--text-muted)"
+          >
+            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+            <span id="selectionStatus">
+              Selecione 11 jogadores para iniciar a partida
+            </span>
+          </div>
+          <button
+            id="startMatchBtn"
+            class="btn-primary px-8 py-3 flex items-center gap-3 uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled
+          >
+            <span id="startMatchBtnText"> Iniciar Partida </span>
+            <i data-lucide="play" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </footer>
+    </main>
+    <script src="../js/teamChoice2.js"></script>
+  </body>
+</html>
